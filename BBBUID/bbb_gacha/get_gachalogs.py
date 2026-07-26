@@ -72,7 +72,7 @@ async def _get_authkey(uid: str) -> str | None:
 
     import copy
     from gsuid_core.utils.api.mys.tools import get_web_ds_token, mys_version
-    from gsuid_core.utils.api.mys.api import GET_AUTHKEY_URL
+    from gsuid_core.utils.api.mys.api import GET_AUTHKEY
     import random as _random
 
     HEADER = copy.deepcopy(bh3_api._HEADER)
@@ -90,7 +90,7 @@ async def _get_authkey(uid: str) -> str | None:
     HEADER["Host"] = "api-takumi.mihoyo.com"
 
     data = await bh3_api._mys_request(
-        url=GET_AUTHKEY_URL,
+        url=GET_AUTHKEY.get(),
         method="POST",
         header=HEADER,
         data={
